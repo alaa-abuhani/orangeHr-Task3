@@ -52,7 +52,7 @@ describe("recruitment functionality", () => {
         // pimObj.successAddEmployee(
         //   empNumber,
         //   EmpInfo.user.firstName,
-        //   EmpInfo.user.lastName
+
         // );
       });
     });
