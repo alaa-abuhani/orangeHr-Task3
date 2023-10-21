@@ -36,12 +36,26 @@ import "cypress-file-upload";
 //     }
 //   }
 // }
+declare global {
+  namespace Cypress {
+    interface Chainable<Subject> {
+      getByPlaceholder: typeof getByPlaceholder;
+      logout: typeof logout;
+    }
+  }
+}
 // declare namespace Cypress{
 //     interface Chainable<Subject>{
 //         getByPlaceholder : typeof getByPlaceholder
 //     }
 // }
-//  function getByPlaceholder (field :string){
-//     return cy.get('[placeholder="' + field +'"]');
-//  }
-//  Cypress.Commands.add('getByPlaceholder', getByPlaceholder )
+function getByPlaceholder(field: string) {
+  return cy.get('[placeholder="' + field + '"]');
+}
+Cypress.Commands.add("getByPlaceholder", getByPlaceholder);
+
+function logout() {
+  cy.get(".oxd-userdropdown-tab").click({ force: true });
+  cy.get(".oxd-dropdown-menu").contains("Logout").click({ force: true });
+}
+Cypress.Commands.add("logout", logout);

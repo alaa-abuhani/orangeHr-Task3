@@ -1,10 +1,11 @@
 {
   "user": {
-    "id": "1100010",
+    "id": "100",
     "firstName": "alaa",
     "middleName": "ghaleb",
     "lastName": "abuhani",
     "empPicture": null,
+    "password": "123456a",
     "maritalStatus": "Married",
     "nationality": "Armenian",
     "licenseExpiryDate": "Today",

@@ -1,15 +1,9 @@
 export default class candidate {
   elements = {
-    firstname: () =>
-      cy.get(
-        ".--name-grouped-field > :nth-child(1) > :nth-child(2) > .oxd-input"
-      ),
-    middlename: () => cy.get(":nth-child(2) > :nth-child(2) > .oxd-input"),
-    lastname: () => cy.get(":nth-child(3) > :nth-child(2) > .oxd-input"),
-    email: () =>
-      cy.get(
-        ":nth-child(3) > .oxd-grid-3 > :nth-child(1) > .oxd-input-group > :nth-child(2) > .oxd-input"
-      ),
+    firstname: () => cy.get(".oxd-input").eq(1),
+    middlename: () => cy.get(".oxd-input").eq(2),
+    lastname: () => cy.get(".oxd-input").eq(3),
+    email: () => cy.get(".oxd-input").eq(4),
   };
   addCandidate(firstName: string, middleName: string, lastName: string) {
     this.elements.firstname().type(firstName);
@@ -22,6 +16,6 @@ export default class candidate {
       force: true,
     });
     cy.get("button").contains("Save").click({ force: true });
-    cy.get(".orangehrm-file-preview > .oxd-text").should("contain", filename);
+    cy.get(".orangehrm-file-preview ").should("contain", filename);
   }
 }
